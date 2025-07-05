@@ -8,6 +8,17 @@ import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
 import { Authenticator } from "@aws-amplify/ui-react";
+import { Footer } from "@/app/components/footer";
+import Calculator from "@/app/pages/calculator";
+
+type IntegerInputProps = {
+  value: number | undefined;
+  onChange: (value: number | undefined) => void;
+  label?: string;
+  min?: number;
+  max?: number;
+};
+
 
 Amplify.configure(outputs);
 
@@ -39,22 +50,9 @@ export default function App() {
   return (
 
     <main>
-      <h1>My todos</h1>
-      <button onClick={createTodo}>+ new</button>
-      <ul>
-        {todos.map((todo) => (
-          <li 
-            onClick={() => deleteTodo(todo.id)}
-          key={todo.id}>{todo.content}</li>
-        ))}
-      </ul>
-      <div>
-        🥳 App successfully hosted. Try creating a new todo. test1234
-        <br />
-        <a href="https://docs.amplify.aws/nextjs/start/quickstart/nextjs-app-router-client-components/">
-          Review next steps of this tutorial.
-        </a>
-      </div>
+      <Calculator />
+      <Footer />
     </main>
+
   );
 }
