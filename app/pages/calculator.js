@@ -301,8 +301,6 @@ const Calculator = () => {
     }
 
     return (
-        <Authenticator>
-                    {({ user }) => (
             <>
 
 
@@ -661,7 +659,6 @@ const Calculator = () => {
         <p className="Release"> Beta Release v0.0.10</p>
         </>
         )}
-        </Authenticator>
-)}
+
                     
 export default Calculator;
