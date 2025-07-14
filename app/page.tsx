@@ -9,7 +9,7 @@ import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
 import { Authenticator } from "@aws-amplify/ui-react";
 import { Footer } from "@/app/components/footer";
-import Calculator from "@/app/pages/calculator";
+import Calculator from "@/app/calculator/page";
 
 type IntegerInputProps = {
   value: number | undefined;
