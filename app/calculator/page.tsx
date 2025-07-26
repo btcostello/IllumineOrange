@@ -162,116 +162,116 @@ const Calculator: React.FC = () => {
   };
 
   async function baseline() {
-    // log request
-
     try {
-      const response = await fetch('https://kqp9cq57bi.execute-api.us-west-2.amazonaws.com/alpha/',{
+      const response = await fetch('https://kqp9cq57bi.execute-api.us-west-2.amazonaws.com/alpha/', {
         method: 'post',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify(
-          {
-            "age":age,
-            "sex":sex,
-            "riskClass":smoker,
-            "presType": "NB",
-            "prodType": prod,
-            "premAmt":pr,
-            "premNum":pn,
-            "face":fa,
-            "dbo":1,
-            "dboSwitch":999,
-            "ROR":ROR/100,
-            "indexCap":indexCap/100,
-            "indexPar":indexPar,
-            "distAmt": distAmt,
-            "distStart": distStart,
-            "distEnd": distEnd,
-            "COIFactor":coiFactor,
-            "UnitFactor":unitFactor,
-            "PerPolFactor":ppFactor,
-            "PctPremFactor":pprFactor,
-            "bonusFactor":pbFactor,
-          }
-        )
-      })
-      var result = await response.json()
-      setCalcOutputDur(result.body.dur)
-      setCalcOutputAge(result.body.age)
-      setCalcOutputPrem(result.body.prem)
-      setCalcOutputAV(result.body.av)
-      setCalcOutputPctPrem(result.body.pctprem)
-      setCalcOutputPerPol(result.body.perpol)
-      setCalcOutputPerUnit(result.body.perunit)
-      setCalcOutputCOI(result.body.coi)
-      setCalcOutputPolCred(result.body.polcred)
-      setCalcOutputPersBonus(result.body.persbonus)
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          age,
+          sex,
+          riskClass: smoker,
+          presType: "NB",
+          prodType: prod,
+          premAmt: pr,
+          premNum: pn,
+          face: fa,
+          dbo: 1,
+          dboSwitch: 999,
+          ROR: parseFloat(ROR) / 100,
+          indexCap: parseFloat(indexCap) / 100,
+          indexPar: parseFloat(indexPar),
+          distAmt: parseFloat(distAmt),
+          distStart: parseInt(distStart),
+          distEnd: parseInt(distEnd),
+          COIFactor: coiFactor,
+          UnitFactor: unitFactor,
+          PerPolFactor: ppFactor,
+          PctPremFactor: pprFactor,
+          bonusFactor: pbFactor,
+        })
+      });
+
+      const result = await response.json();
+
+      setCalcOutputDur(result.body.dur);
+      setCalcOutputAge(result.body.age);
+      setCalcOutputPrem(result.body.prem);
+      setCalcOutputAV(result.body.av);
+      setCalcOutputPctPrem(result.body.pctprem);
+      setCalcOutputPerPol(result.body.perpol);
+      setCalcOutputPerUnit(result.body.perunit);
+      setCalcOutputCOI(result.body.coi);
+      setCalcOutputPolCred(result.body.polcred);
+      setCalcOutputPersBonus(result.body.persbonus);
     } catch (error) {
       console.error("Error:", error);
     }
-    setTabIndex(1)
+
+    setTabIndex(1);
   }
 
   async function runIllumine() {
     try {
-      const response = await fetch('https://kqp9cq57bi.execute-api.us-west-2.amazonaws.com/alpha/multi/',{
+      const response = await fetch('https://kqp9cq57bi.execute-api.us-west-2.amazonaws.com/alpha/multi/', {
         method: 'post',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify(
-          {
-            "age":age,
-            "sex":sex,
-            "riskClass":smoker,
-            "presType": "NB",
-            "prodType": prod,
-            "premAmt":pr,
-            "premNum":pn,
-            "face":fa,
-            "dbo":1,
-            "dboSwitch":999,
-            "ROR":ROR/100,
-            "indexCap":indexCap/100,
-            "indexPar":1,
-            "distAmt": 0,
-            "distStart": 20,
-            "distEnd": 50,
-            "COIFactor":coiFactor,
-            "UnitFactor":unitFactor,
-            "PerPolFactor":ppFactor,
-            "PctPremFactor":pprFactor,
-            "bonusFactor":pbFactor,
-            "numScen": numScen,
-            "LE": LE
-          }
-        )
-      })
-      var result = await response.json()
-      setCalcOutputLapseRate(result.body.lapse)
-      setCalcOutputSuccessRate(result.body.success)
-      setLE_Age(result.body.LE_Age)
-      setLE_Lapse(result.body.LE_Lapse)
-      setLE_Persist(result.body.LE_Persist)
-      setLE_AV(result.body.LE_AV)
-      setLE_DB(result.body.LE_DB)
-      setLE_Prob(result.body.LE_Prob)
-      setLE5_Age(result.body.LE5_Age)
-      setLE5_Lapse(result.body.LE5_Lapse)
-      setLE5_Persist(result.body.LE5_Persist)
-      setLE5_AV(result.body.LE5_AV)
-      setLE5_DB(result.body.LE5_DB)
-      setLE5_Prob(result.body.LE5_Prob)
-      setLE10_Age(result.body.LE10_Age)
-      setLE10_Lapse(result.body.LE10_Lapse)
-      setLE10_Persist(result.body.LE10_Persist)
-      setLE10_AV(result.body.LE10_AV)
-      setLE10_DB(result.body.LE10_DB)
-      setLE10_Prob(result.body.LE10_Prob)
-      setSuccessVector(result.body.SuccessVector)
-      setSurvivalVector(result.body.SurvivalVector)
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          age,
+          sex,
+          riskClass: smoker,
+          presType: "NB",
+          prodType: prod,
+          premAmt: pr,
+          premNum: pn,
+          face: fa,
+          dbo: 1,
+          dboSwitch: 999,
+          ROR: parseFloat(ROR) / 100,
+          indexCap: parseFloat(indexCap) / 100,
+          indexPar: parseFloat(indexPar),
+          distAmt: parseFloat(distAmt),
+          distStart: parseInt(distStart),
+          distEnd: parseInt(distEnd),
+          COIFactor: coiFactor,
+          UnitFactor: unitFactor,
+          PerPolFactor: ppFactor,
+          PctPremFactor: pprFactor,
+          bonusFactor: pbFactor,
+          numScen: parseInt(numScen),
+          LE: parseInt(LE),
+        })
+      });
+
+      const result = await response.json();
+      setCalcOutputLapseRate(result.body.lapse);
+      setCalcOutputSuccessRate(result.body.success);
+      setLE_Age(result.body.LE_Age);
+      setLE_Lapse(result.body.LE_Lapse);
+      setLE_Persist(result.body.LE_Persist);
+      setLE_AV(result.body.LE_AV);
+      setLE_DB(result.body.LE_DB);
+      setLE_Prob(result.body.LE_Prob);
+      setLE5_Age(result.body.LE5_Age);
+      setLE5_Lapse(result.body.LE5_Lapse);
+      setLE5_Persist(result.body.LE5_Persist);
+      setLE5_AV(result.body.LE5_AV);
+      setLE5_DB(result.body.LE5_DB);
+      setLE5_Prob(result.body.LE5_Prob);
+      setLE10_Age(result.body.LE10_Age);
+      setLE10_Lapse(result.body.LE10_Lapse);
+      setLE10_Persist(result.body.LE10_Persist);
+      setLE10_AV(result.body.LE10_AV);
+      setLE10_DB(result.body.LE10_DB);
+      setLE10_Prob(result.body.LE10_Prob);
+      setSuccessVector(result.body.SuccessVector);
+      setSurvivalVector(result.body.SurvivalVector);
     } catch (error) {
       console.error("Error:", error);
     }
-    setTabIndex(3)
+
+    setTabIndex(3);
   }
+
 
   async function showOptions() {
     setTabIndex(2)
