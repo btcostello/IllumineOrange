@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, Authenticator, Tabs, TabItem, SliderField, Expander, ExpanderItem, StepperField, SelectField, Button, Divider, SwitchField } from '@aws-amplify/ui-react'
+import { Card, SliderField, StepperField, SelectField, Button, Divider } from '@aws-amplify/ui-react'
 import React, {useState} from 'react'
 import { Radio, RadioGroupField } from '@aws-amplify/ui-react';
 import Chart from "chart.js/auto";
