@@ -70,10 +70,10 @@ const Calculator: React.FC = () => {
   const [fa, setFa] = useState(1000000);
   const [age, setAge] = useState(45);
 
-  const handlePrChg = (newValue) => {setPr(newValue)}
-  const handlePnChg = (newValue) => {setPn(newValue)}
-  const handleFaChg = (newValue) => {setFa(newValue)}
-  const handleAgeChg = (newValue) => {setAge(newValue)}
+  const handlePrChg = (newValue: number) => { setPr(newValue) }
+  const handlePnChg = (newValue: number) => { setPn(newValue) }
+  const handleFaChg = (newValue: number) => { setFa(newValue) }
+  const handleAgeChg = (newValue: number) => { setAge(newValue) }
 
   const [pprFactor, setPprFactor] = useState(50)
   const [ppFactor, setPpFactor] = useState(50)
