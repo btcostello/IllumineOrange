@@ -485,7 +485,7 @@ const Calculator: React.FC = () => {
                   min={0}
                   max={120}
                   value={distStart}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDistStart(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDistStart(Number(e.target.value))}
                   />  
               </Card>
               <Card style={{width:"310px", margin:"10px"}} variation="elevated">
