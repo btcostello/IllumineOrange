@@ -2,7 +2,7 @@
 
 import { Card, SliderField, StepperField, SelectField, Button, Divider } from '@aws-amplify/ui-react'
 import React, {useState} from 'react'
-import { Radio, RadioGroupField } from '@aws-amplify/ui-react';
+import { Radio, RadioGroup, Fieldset } from '@aws-amplify/ui-react';
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import { Doughnut, Line } from 'react-chartjs-2';
@@ -298,10 +298,16 @@ const Calculator: React.FC = () => {
             <Divider style={{marginBottom:"10px"}}/>
             <div style={{display:"flex"}}>
               <Card style={{width:"310px", margin:"10px"}} variation="elevated">
-                <RadioGroupField label="Insured Sex" name="InsuredSex" value={sex} onChange={(e) => setSex(e.target.value)}>
-                  <Radio value="M">Male</Radio>
-                  <Radio value="F">Female</Radio>
-                </RadioGroupField>
+                <Fieldset legend="Insured Sex" name="InsuredSex">
+                  <RadioGroup
+                    name="InsuredSex"
+                    value={sex}
+                    onChange={(e) => setSex(e.target.value)}
+                  >
+                    <Radio value="M">Male</Radio>
+                    <Radio value="F">Female</Radio>
+                  </RadioGroup>
+                </Fieldset>
               </Card>
               <Card style={{width:"310px", margin:"10px"}} variation="elevated"> 
                 <label>Current Age</label>   
@@ -313,10 +319,16 @@ const Calculator: React.FC = () => {
                 />     
               </Card>
               <Card style={{width:"310px", margin:"10px"}} variation="elevated">         
-                <RadioGroupField  label="Tobacco Use" name="InsuredSm" value={smoker} onChange={(e) => setSmoker(e.target.value)}>
-                  <Radio value="N">No Tobacco</Radio>
-                  <Radio value="T">Uses Tobacco</Radio>
-                </RadioGroupField>
+                <Fieldset legend="Tobacco Use">
+                  <RadioGroup
+                    name="InsuredSm"
+                    value={smoker}
+                    onChange={(e) => setSmoker(e.target.value)}
+                  >
+                    <Radio value="N">No Tobacco</Radio>
+                    <Radio value="T">Uses Tobacco</Radio>
+                  </RadioGroup>
+                </Fieldset>
               </Card>
             </div>
             <p style={{marginBottom:"0",textAlign:"center"}}><strong>Product</strong></p>
