@@ -443,7 +443,7 @@ const Calculator: React.FC = () => {
                 min={0}
                 max={100}
                 value={0}
-                onChange={0}
+                onChange={() => {}}
                 />     
               </Card>
 
