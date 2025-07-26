@@ -152,7 +152,7 @@ const Calculator: React.FC = () => {
     }
   }
 
-  const formatNumber = (value) => {
+  const formatNumber = (value: string): string => {
   // Remove existing commas
     value = value.replace(/,/g, '');
     // Add commas as appropriate
@@ -378,7 +378,7 @@ const Calculator: React.FC = () => {
                 <>
                 <Card style={{width:"310px", margin:"10px"}} variation="elevated">
                   <label>DBO Switch Year</label>
-                  <input name="switchYr" value={switchYr} onChange={(e) => setSwitchYr(e.target.value)} /> 
+                  <input name="switchYr" value={switchYr} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSwitchYr(e.target.value)} />
                 </Card>
                 </>
               )}
@@ -400,18 +400,18 @@ const Calculator: React.FC = () => {
             <div style={{display:"flex"}}>
               <Card style={{width:"310px", margin:"10px"}} variation="elevated">
                 <label>Baseline Rate of Return (%)</label>
-                <input name="ROR" value={ROR} onChange={(e) => setROR(e.target.value)} />
+                <input name="ROR" value={ROR} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setROR(e.target.value)} />
               </Card>
 
               {prod === "VUL" ? null : (
                 <>
                 <Card style={{width:"310px", margin:"10px"}} variation="elevated">
                   <label>Index Account Cap</label>
-                  <input name="indexCap" value={indexCap} onChange={(e) => setIndexCap(e.target.value)} />
+                  <input name="indexCap" value={indexCap} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setIndexCap(e.target.value)} />
                 </Card>
                 <Card style={{width:"310px", margin:"10px"}} variation="elevated">
                   <label>Index Account Par</label>
-                  <input name="indexPar" value={indexPar} onChange={(e) => setIndexPar(e.target.value)} />
+                  <input name="indexPar" value={indexPar} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setIndexPar(e.target.value)} />
                 </Card>
                 </>
               )}
@@ -423,7 +423,7 @@ const Calculator: React.FC = () => {
             <div style={{ display: "flex"}}>
               <Card style={{width:"310px", margin:"10px"}} variation="elevated">
                 <label>Distribution Amount</label>
-                <input name="distAmt" value={distAmt} onChange={(e) => setDistAmt(formatNumber(e.target.value))} /> 
+                <input name="distAmt" value={distAmt} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDistAmt(formatNumber(e.target.value))} />
               </Card>
               <Card style={{width:"310px", margin:"10px"}} variation="elevated">
                 <label>Distribution Start Year</label>
@@ -431,7 +431,7 @@ const Calculator: React.FC = () => {
                   min={0}
                   max={120}
                   value={distStart}
-                  onChange={(e) => setDistStart(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDistStart(e.target.value)}
                   />  
               </Card>
               <Card style={{width:"310px", margin:"10px"}} variation="elevated">
