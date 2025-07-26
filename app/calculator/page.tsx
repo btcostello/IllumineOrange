@@ -2,7 +2,7 @@
 
 import { Card, SliderField, StepperField, SelectField, Button, Divider } from '@aws-amplify/ui-react'
 import React, {useState} from 'react'
-import { Radio, Fieldset } from '@aws-amplify/ui-react';
+import { Fieldset } from '@aws-amplify/ui-react';
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import { Doughnut, Line } from 'react-chartjs-2';
@@ -299,12 +299,26 @@ const Calculator: React.FC = () => {
             <div style={{display:"flex"}}>
               <Card style={{width:"310px", margin:"10px"}} variation="elevated">
                 <Fieldset legend="Insured Sex">
-                  <Radio name="InsuredSex" value="M" checked={sex === "M"} onChange={(e) => setSex(e.target.value)}>
+                  <label>
+                    <input
+                      type="radio"
+                      name="InsuredSex"
+                      value="M"
+                      checked={sex === "M"}
+                      onChange={(e) => setSex(e.target.value)}
+                    />
                     Male
-                  </Radio>
-                  <Radio name="InsuredSex" value="F" checked={sex === "F"} onChange={(e) => setSex(e.target.value)}>
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="InsuredSex"
+                      value="F"
+                      checked={sex === "F"}
+                      onChange={(e) => setSex(e.target.value)}
+                    />
                     Female
-                  </Radio>
+                  </label>
                 </Fieldset>
               </Card>
               <Card style={{width:"310px", margin:"10px"}} variation="elevated"> 
@@ -318,12 +332,26 @@ const Calculator: React.FC = () => {
               </Card>
               <Card style={{width:"310px", margin:"10px"}} variation="elevated">         
                 <Fieldset legend="Tobacco Use">
-                  <Radio name="InsuredSm" value="N" checked={smoker === "N"} onChange={(e) => setSmoker(e.target.value)}>
+                  <label>
+                    <input
+                      type="radio"
+                      name="InsuredSm"
+                      value="N"
+                      checked={smoker === "N"}
+                      onChange={(e) => setSmoker(e.target.value)}
+                    />
                     No Tobacco
-                  </Radio>
-                  <Radio name="InsuredSm" value="T" checked={smoker === "T"} onChange={(e) => setSmoker(e.target.value)}>
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="InsuredSm"
+                      value="T"
+                      checked={smoker === "T"}
+                      onChange={(e) => setSmoker(e.target.value)}
+                    />
                     Uses Tobacco
-                  </Radio>
+                  </label>
                 </Fieldset>
               </Card>
             </div>
@@ -332,12 +360,26 @@ const Calculator: React.FC = () => {
             <div style={{ display:"flex"}}>
               <Card style={{width:"310px", margin:"10px"}} variation="elevated">
                 <Fieldset legend="Product Type">
-                  <Radio name="ProductType" value="IUL" checked={prod === "IUL"} onChange={(e) => setProd(e.target.value)}>
+                  <label>
+                    <input
+                      type="radio"
+                      name="ProductType"
+                      value="IUL"
+                      checked={prod === "IUL"}
+                      onChange={(e) => setProd(e.target.value)}
+                    />
                     Indexed
-                  </Radio>
-                  <Radio name="ProductType" value="VUL" checked={prod === "VUL"} onChange={(e) => setProd(e.target.value)}>
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="ProductType"
+                      value="VUL"
+                      checked={prod === "VUL"}
+                      onChange={(e) => setProd(e.target.value)}
+                    />
                     Variable
-                  </Radio>
+                  </label>
                 </Fieldset>
               </Card>
             </div>
